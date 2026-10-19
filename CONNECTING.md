@@ -17,6 +17,18 @@ freezes. So the connection must be **raw**:
 | tcpser | `ATDT` or `ATD` both raw (tcpser only speaks Telnet if the far end asks, and Q-Link never does) | |
 | VICE, direct | IP232 **off** | IP232 on, pointed straight at the server |
 
+## Use a user-port modem (not SwiftLink)
+
+These disks talk to a modem on the **user port** only: a user-port Wi-Fi modem, the Ultimate's modem set to the **user port**, a
+PC running tcpser on a user-port serial cable, or VICE's user-port RS-232. **SwiftLink / Turbo232-style cartridges (and the
+Ultimate's modem in SwiftLink/ACIA mode) are not supported.**
+
+This is more than a missing setting. RabbitJack's Casino, Super-Q's music player, Club Caribe (Habitat) and some of the older games
+each bring **their own 1980s user-port RS-232 driver** and install it when they load; Habitat's, for example, reads the user-port data
+bit directly and times every bit itself. Even a client patched for SwiftLink (such as the 1992 "SL-232" patch, which replaced the
+client's driver and, in a later add-on, Super-Q's, but not the casino's or Club Caribe's) loses the connection the moment one of
+those starts.
+
 ## How the Q-Link disk dials
 
 When you start a **new** client disk, Q-Link asks how you connect and saves your answers (with your account) on the disk:
