@@ -14,11 +14,19 @@ transfer cable) or for VICE.
 | `club-caribe-side1.d64` | Club Caribe program disk (`CLUB CARIBE`) | Club Caribe / Habitat |
 | `club-caribe-side2.d64` | Club Caribe image disk (`HABITAT DATA`) | Club Caribe / Habitat (stays in the drive) |
 
+## Documentation
+- **[CONNECTING.md](CONNECTING.md)**: modems (Zimodem and other Wi-Fi modems, tcpser, VICE), why you dial raw `ATD` and not
+  `ATDT`, manual dial versus the Hayes-compatible auto-dial with a phone-book number, and your first sign-on.
+- **[Member's Guide](docs/Q-Link-Reloaded-Members-Guide-Edition-1.pdf)** (PDF, Edition 1): the full guide to People Connection,
+  the games, RabbitJack's Casino, Super-Q and the Music Connection, Club Caribe, mail and news, with a quick-reference card.
+  Written for this server; where it says "ask the system operator for the corrected disk", the disks here are the corrected ones.
+
 ## Getting started
 1. Make **your own working copies** of the images and keep these downloads untouched as a backup. The client writes
    your registration to its disk, and the Club Caribe image disk is updated by the server when you enter, so the
    working copies must be **writable**. Never share your working client disk: it holds your account details.
-2. Point your modem (or modem emulator) at `qlink.kd4cbm.us`, port `5190`.
+2. Point your modem (or modem emulator) at `qlink.kd4cbm.us`, port `5190`, and **dial raw** (`ATD`, not `ATDT`): see
+   [CONNECTING.md](CONNECTING.md).
 3. Boot the client: `LOAD"*",8,1`. New members register from the client; it saves your account to the disk.
 4. When Q-Link asks for another disk (games, casino, Super-Q, Club Caribe), insert the matching image and follow the prompt.
    Club Caribe asks for side 1 first, then the image disk (side 2), which stays in the drive while you play.
