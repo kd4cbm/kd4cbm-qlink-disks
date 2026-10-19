@@ -1,7 +1,7 @@
 # Connecting to Q-Link Reloaded (qlink.kd4cbm.us, port 5190)
 
-Q-Link expects a **Hayes-compatible modem at 1200 baud** on the user port. Today that "modem" is a Wi-Fi modem (Zimodem and
-similar), the Ultimate's modem, **tcpser** on a PC, or VICE's emulated RS-232. They all end in the same place: a TCP connection
+Q-Link expects a **Hayes-compatible modem at 1200 baud** on the user port. Today that "modem" is a user-port Wi-Fi modem (Zimodem and
+similar), **tcpser** on a PC, or VICE's emulated RS-232. They all end in the same place: a TCP connection
 to `qlink.kd4cbm.us` port `5190`.
 
 ## The one rule: dial raw (`ATD`, not `ATDT`)
@@ -19,9 +19,10 @@ freezes. So the connection must be **raw**:
 
 ## Use a user-port modem (not SwiftLink)
 
-These disks talk to a modem on the **user port** only: a user-port Wi-Fi modem, the Ultimate's modem set to the **user port**, a
-PC running tcpser on a user-port serial cable, or VICE's user-port RS-232. **SwiftLink / Turbo232-style cartridges (and the
-Ultimate's modem in SwiftLink/ACIA mode) are not supported.**
+These disks talk to a modem on the **user port** only: a user-port Wi-Fi modem (on a C64, C128 or the user port of an Ultimate 64 /
+Commodore 64 Ultimate), a PC running tcpser on a user-port serial cable, or VICE's user-port RS-232. **SwiftLink / Turbo232-style
+cartridges, the Ultimate's built-in modem (it emulates a cartridge ACIA) and its network interface are not supported yet**: full
+Ultimate support is planned.
 
 This is more than a missing setting. RabbitJack's Casino, Super-Q's music player, Club Caribe (Habitat) and some of the older games
 each bring **their own 1980s user-port RS-232 driver** and install it when they load; Habitat's, for example, reads the user-port data
