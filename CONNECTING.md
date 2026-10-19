@@ -21,8 +21,8 @@ freezes. So the connection must be **raw**:
 
 These disks talk to a modem on the **user port** only: a user-port Wi-Fi modem (on a C64, C128 or the user port of an Ultimate 64 /
 Commodore 64 Ultimate), a PC running tcpser on a user-port serial cable, or VICE's user-port RS-232. **SwiftLink / Turbo232-style
-cartridges, the Ultimate's built-in modem (it emulates a cartridge ACIA) and its network interface are not supported yet**: full
-Ultimate support is planned.
+cartridges, the Ultimate's built-in modem (it emulates a cartridge ACIA) and its network interface are not supported yet**:
+support for SwiftLink-type ACIA interfaces, including the Ultimate's, is planned.
 
 This is more than a missing setting. RabbitJack's Casino, Super-Q's music player, Club Caribe (Habitat) and some of the older games
 each bring **their own 1980s user-port RS-232 driver** and install it when they load; Habitat's, for example, reads the user-port data
