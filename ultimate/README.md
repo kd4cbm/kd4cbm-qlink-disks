@@ -1,6 +1,6 @@
 # Q-Link disks for the Ultimate's SwiftLink (beta)
 
-**Beta.** These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
+**Beta 2** (2026-10-20). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
 modem. Tested on the **Commodore 64 Ultimate**; the Ultimate 64 and Ultimate-II(+) emulate the same ACIA but are untested. The client is **pre-configured**: it dials
 `qlink.kd4cbm.us` port `5190` by itself, so there is no modem command, host name or phone number to type.
 
@@ -31,11 +31,20 @@ The connection is raw (the Ultimate's modem does no Telnet translation), so casi
   **F5 after signing off returns to BASIC** instead of freezing.
 - The client's dialer has a new type that dials `host:port` from the disk; this image has `qlink.kd4cbm.us:5190` stored
   in it (the user block holds only those dial settings, no account).
+- The client has the same fix for a random freeze at the main menu as the user-port client (modules `0006` and `9904`,
+  see the main README).
 - Built from the same archive disks as the user-port set; nothing else on the disks is changed.
 
 ## Tested
 In VICE (ACIA at `$DE00`): new member sign-up with no input, returning member sign-in, lobby and chat, a game
 (Four in a Row), RabbitJack's Casino and its own sign-off, F5 to BASIC, also with the line drop simulated. On a
 Commodore 64 Ultimate: sign-off and F5 to BASIC. Please report anything that freezes, and where.
+
+## Changes
+- **Beta 2 (2026-10-20):** client only: fix for the random freeze at the main menu after sign-on (the raster interrupt
+  stopped). The games and casino images are unchanged from beta 1. Already signed up with beta 1? Your account lives on
+  your working copy (track 18, sector 15), so a fresh beta 2 copy would start a new sign-up; if you want to keep your
+  account, keep using your beta 1 copy for now (it only has the occasional freeze), or ask us to help move it.
+- **Beta 1 (2026-10-20):** first release.
 
 Checksums are in `../SHA256SUMS`.

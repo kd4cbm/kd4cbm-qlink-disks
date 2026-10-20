@@ -39,7 +39,10 @@ Super-Q and Club Caribe still need a user-port modem. See [ultimate/README.md](u
 
 ## What is different from other copies
 - **`qlink-client-v4.d64`**: the 2005 archive copy with its user block (track 18, sector 15) reset to the factory-blank
-  state. The archive copy still held an old registration; nothing else on the disk is changed.
+  state (the archive copy still held an old registration), and **a fix for a random freeze at the main menu** (2026-10-20):
+  four BASIC lines in modules `0006` and `9904` turned the screen on and off with `POKE53265,PEEK(53265)...`, which can copy
+  the current raster line into the raster-interrupt compare and stop the client's raster interrupt (no keyboard, the client
+  waits forever, typically right after sign-on). Those lines now mask that bit; nothing else on the disk is changed.
 - **`qlink-casino.d64`**: carries our change-table fix (index files `005` and `006`); without it, changing tables fails.
 - **`club-caribe-side1.d64` / `side2.d64`**: built with the original Club Caribe kit. The kit writes the pointer to the
   `MCM` index byte-swapped, so a freshly built program disk recognises the image disk and then hangs; side 1 here has
