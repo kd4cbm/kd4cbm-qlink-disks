@@ -1,6 +1,6 @@
 # Q-Link disks for the Ultimate's SwiftLink (beta)
 
-**Beta 2** (2026-10-20). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
+**Beta 3** (2026-10-20). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
 modem. Tested on the **Commodore 64 Ultimate**; the Ultimate 64 and Ultimate-II(+) emulate the same ACIA but are untested. The client is **pre-configured**: it dials
 `qlink.kd4cbm.us` port `5190` by itself, so there is no modem command, host name or phone number to type.
 
@@ -10,9 +10,11 @@ modem. Tested on the **Commodore 64 Ultimate**; the Ultimate 64 and Ultimate-II(
 | `qlink-games-1-swiftlink.d64` | People Connection games, disk 1, with the SwiftLink driver |
 | `qlink-games-2-swiftlink.d64` | People Connection games, disk 2 (Checkers, Reversi), with the SwiftLink driver |
 | `qlink-casino-swiftlink.d64` | RabbitJack's Casino with the SwiftLink driver |
+| `club-caribe-side1-swiftlink-de00.d64` | Club Caribe program disk (side 1) with a SwiftLink driver, ACIA at **`$DE00`**. **VICE-tested, not yet tested on real hardware.** Use it with the unchanged image disk [`../club-caribe-side2.d64`](../club-caribe-side2.d64) |
 
-Use these four **together**: the user-port disks in the folder above and these do not mix in one session.
-**Super-Q and Club Caribe are not available this way yet**: they still bring their own user-port drivers.
+Use these **together**: the user-port disks in the folder above and these do not mix in one session (Club Caribe's image
+disk, side 2, is the one exception: it has no modem code, so the same `../club-caribe-side2.d64` serves both).
+**Super-Q is not available this way yet**: it still brings its own user-port driver.
 
 ## Set up the Ultimate
 1. Enable the modem interface (ACIA / SwiftLink emulation) at **`$DE00`**, interrupt **NMI**.
@@ -25,6 +27,17 @@ Use these four **together**: the user-port disks in the folder above and these d
 
 The connection is raw (the Ultimate's modem does no Telnet translation), so casino balances such as 255 are safe.
 
+## Club Caribe (beta, VICE-tested only)
+1. In Q-Link, go to Club Caribe. Mount `club-caribe-side1-swiftlink-de00.d64` when asked for side 1, then a **writable
+   working copy** of `../club-caribe-side2.d64` (the image disk stays in the drive while you play; the server updates it).
+2. Controls: joystick in **port 1**; fire + up / down / right / left = GO / DO / GET / PUT; F1 = ghost.
+3. **To leave, press CTRL+Q.** Club Caribe then asks for the Q-Link disk: mount your client working copy again and follow
+   the prompt; you are back in People Connection.
+4. **Swap back within 5 minutes.** While the disks are swapped (entering and leaving), the server holds your session for
+   5 minutes; after that it drops the connection and you have to sign on again.
+This has been tested in VICE (ACIA at `$DE00`): Q-Link -> Club Caribe -> Q-Link, with the swap back well inside the limit.
+It has **not yet been tried on a real C64 Ultimate**; please report how it goes.
+
 ## What is different from the user-port disks
 - A replacement RS-232 driver for a 6551 ACIA (our own code) in the client, the games and the casino; the hang-up points and
   the disk loader call it. When the line drops (sign-off, or the server closes the connection), it stops sending, so
@@ -33,6 +46,11 @@ The connection is raw (the Ultimate's modem does no Telnet translation), so casi
   in it (the user block holds only those dial settings, no account).
 - The client has the same fix for a random freeze at the main menu as the user-port client (modules `0006` and `9904`,
   see the main README).
+- Two more spots that copy the same raster bit back (harmless in normal use, fixed to be safe): the client's raster set-up
+  (module `0012`, waits for raster line 0 itself before it saves the screen setting) and the casino's bingo start-up
+  (module `010`, masks the bit before it turns the screen on).
+- Club Caribe side 1: only its RS-232 code (file `MCMG`, `$1331-$143C`) is replaced, plus a call on exit that switches the
+  modem's receive interrupt off before Q-Link loads again. Everything else on the disk is unchanged.
 - Built from the same archive disks as the user-port set; nothing else on the disks is changed.
 
 ## Tested
@@ -41,6 +59,9 @@ In VICE (ACIA at `$DE00`): new member sign-up with no input, returning member si
 Commodore 64 Ultimate: sign-off and F5 to BASIC. Please report anything that freezes, and where.
 
 ## Changes
+- **Beta 3 (2026-10-20):** new: Club Caribe side 1 for the SwiftLink (VICE-tested, not yet on real hardware). Client and
+  casino: two latent raster fixes (modules `0012` and `010`); nothing else changes, the games are as in beta 1. A beta 2
+  working copy keeps working; to keep your account, keep using it (same advice as for beta 1 below).
 - **Beta 2 (2026-10-20):** client only: fix for the random freeze at the main menu after sign-on (the raster interrupt
   stopped). The games and casino images are unchanged from beta 1. Already signed up with beta 1? Your account lives on
   your working copy (track 18, sector 15), so a fresh beta 2 copy would start a new sign-up; if you want to keep your

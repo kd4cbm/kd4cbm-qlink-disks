@@ -17,7 +17,8 @@ transfer cable) or for VICE.
 ## Commodore 64 Ultimate / SwiftLink (beta)
 The **[`ultimate/`](ultimate/)** folder has a beta set for the Ultimate's SwiftLink-type modem interface (ACIA at `$DE00`):
 the client, both game disks and the casino with a SwiftLink driver, and a client that dials `qlink.kd4cbm.us:5190` by itself.
-Super-Q and Club Caribe still need a user-port modem. See [ultimate/README.md](ultimate/README.md).
+Club Caribe has a SwiftLink side 1 there too (beta, VICE-tested only); Super-Q still needs a user-port modem.
+See [ultimate/README.md](ultimate/README.md).
 
 ## Documentation
 - **[CONNECTING.md](CONNECTING.md)**: modems (Zimodem and other Wi-Fi modems, tcpser, VICE), why you dial raw `ATD` and not

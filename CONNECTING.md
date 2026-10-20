@@ -24,7 +24,7 @@ Commodore 64 Ultimate), a PC running tcpser on a user-port serial cable, or VICE
 cartridges, the Ultimate's built-in modem (it emulates a cartridge ACIA) and its network interface are not supported yet**:
 support for SwiftLink-type ACIA interfaces, including the Ultimate's, is planned. **A beta for the Ultimate's SwiftLink
 (ACIA at `$DE00`) is in [`ultimate/`](ultimate/README.md)**: client, games and casino, with a client that dials by itself;
-Super-Q and Club Caribe still need the user port.
+Super-Q still needs the user port; Club Caribe has a SwiftLink side 1 there (beta, tested in VICE only).
 
 This is more than a missing setting. RabbitJack's Casino, Super-Q's music player, Club Caribe (Habitat) and some of the older games
 each bring **their own 1980s user-port RS-232 driver** and install it when they load; Habitat's, for example, reads the user-port data
