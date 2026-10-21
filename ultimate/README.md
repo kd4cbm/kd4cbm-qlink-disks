@@ -1,6 +1,6 @@
 # Q-Link disks for the Ultimate's SwiftLink (beta)
 
-**Beta 3** (2026-10-20). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
+**Beta 4** (2026-10-21). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
 modem. Tested on the **Commodore 64 Ultimate**; the Ultimate 64 and Ultimate-II(+) emulate the same ACIA but are untested. The client is **pre-configured**: it dials
 `qlink.kd4cbm.us` port `5190` by itself, so there is no modem command, host name or phone number to type.
 
@@ -35,7 +35,12 @@ The connection is raw (the Ultimate's modem does no Telnet translation), so casi
    the prompt; you are back in People Connection.
 4. **Swap back within 5 minutes.** While the disks are swapped (entering and leaving), the server holds your session for
    5 minutes; after that it drops the connection and you have to sign on again.
-This has been tested in VICE (ACIA at `$DE00`): Q-Link -> Club Caribe -> Q-Link, with the swap back well inside the limit.
+5. **If the connection drops while you are in Club Caribe** (beta 4): when you leave, Club Caribe waits about 50 seconds
+   for the server, then shows **"Connection lost. Insert Q-Link disk, press any key."** Mount your client working copy and
+   press a key; Q-Link then shows its own "connection broken" screen: press F5 and sign on again. (Before beta 4 it waited
+   forever.)
+This has been tested in VICE (ACIA at `$DE00`): Q-Link -> Club Caribe -> Q-Link, with the swap back well inside the limit,
+and with the line cut while in Club Caribe (the "Connection lost." exit above).
 It has **not yet been tried on a real C64 Ultimate**; please report how it goes.
 
 ## What is different from the user-port disks
@@ -50,7 +55,9 @@ It has **not yet been tried on a real C64 Ultimate**; please report how it goes.
   (module `0012`, waits for raster line 0 itself before it saves the screen setting) and the casino's bingo start-up
   (module `010`, masks the bit before it turns the screen on).
 - Club Caribe side 1: only its RS-232 code (file `MCMG`, `$1331-$143C`) is replaced, plus a call on exit that switches the
-  modem's receive interrupt off before Q-Link loads again. Everything else on the disk is unchanged.
+  modem's receive interrupt off before Q-Link loads again, and (beta 4) a time-out on the exit's wait for the server's
+  answer: after about 50 seconds without one, the disk prompt reads "Connection lost." first. Everything else in Club
+  Caribe is unchanged.
 - Built from the same archive disks as the user-port set; nothing else on the disks is changed.
 
 ## Tested
@@ -59,6 +66,10 @@ In VICE (ACIA at `$DE00`): new member sign-up with no input, returning member si
 Commodore 64 Ultimate: sign-off and F5 to BASIC. Please report anything that freezes, and where.
 
 ## Changes
+- **Beta 4 (2026-10-21):** Club Caribe side 1 only: a dropped connection no longer freezes Club Caribe when you leave (it
+  shows "Connection lost." after about 50 seconds and returns you to the Q-Link disk prompt). The client, games and casino
+  are unchanged from beta 3, so keep using your working copies. The server update of the same day also brings you back to
+  People Connection cleanly if Club Caribe fails to start (for example a disk error on side 1).
 - **Beta 3 (2026-10-20):** new: Club Caribe side 1 for the SwiftLink (VICE-tested, not yet on real hardware). Client and
   casino: two latent raster fixes (modules `0012` and `010`); nothing else changes, the games are as in beta 1. A beta 2
   working copy keeps working; to keep your account, keep using it (same advice as for beta 1 below).
