@@ -17,7 +17,7 @@ transfer cable) or for VICE.
 ## Commodore 64 Ultimate / SwiftLink (beta)
 The **[`ultimate/`](ultimate/)** folder has a beta set for the Ultimate's SwiftLink-type modem interface (ACIA at `$DE00`):
 the client, both game disks and the casino with a SwiftLink driver, and a client that dials `qlink.kd4cbm.us:5190` by itself.
-Club Caribe has a SwiftLink side 1 there too (beta, VICE-tested only); Super-Q still needs a user-port modem.
+Club Caribe has a SwiftLink side 1 there too (beta, tested on a real C64 Ultimate); Super-Q still needs a user-port modem.
 See [ultimate/README.md](ultimate/README.md).
 
 ## Documentation
@@ -37,6 +37,7 @@ See [ultimate/README.md](ultimate/README.md).
 4. When Q-Link asks for another disk (games, casino, Super-Q, Club Caribe), insert the matching image and follow the prompt.
    Club Caribe asks for side 1 first, then the image disk (side 2), which stays in the drive while you play.
 5. Club Caribe controls: joystick in **port 1**; fire + up / down / right / left = GO / DO / GET / PUT; F1 = ghost.
+   To leave Club Caribe press **SHIFT + RUN/STOP**, then put your Q-Link disk back in within 5 minutes.
 
 ## What is different from other copies
 - **`qlink-client-v4.d64`**: the 2005 archive copy with its user block (track 18, sector 15) reset to the factory-blank
