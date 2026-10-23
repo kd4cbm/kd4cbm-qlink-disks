@@ -5,7 +5,10 @@ public releases are `vMAJOR.MINOR.PATCH`, with `-beta.N` for pre-releases. Every
 a GitHub Release with the images and checksums.
 
 ## [Unreleased]
-- (nothing yet)
+- Release page of `v1.0.0-beta.1` (no change to the tagged files): it now also carries the user-port set as one zip
+  (`kd4cbm-qlink-disks-userport-v1.0.0-beta.1.zip`: the seven D64s at the tag, `CONNECTING.md`, the Member's Guide, the
+  checksums) and is the **Latest** release, so the releases page leads every C64 to the current disks. The old `v1` release
+  (2026-10-19 set, before the main-menu freeze fix) stays as it was, marked superseded.
 
 ## [v1.0.0-beta.1] - 2026-10-23 - Public Release Beta 1
 The first public release. For the Commodore 64 Ultimate: one D81 image with everything.
