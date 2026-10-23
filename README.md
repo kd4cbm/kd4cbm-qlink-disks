@@ -18,6 +18,7 @@ transfer cable) or for VICE.
 The **[`ultimate/`](ultimate/)** folder has a beta set for the Ultimate's SwiftLink-type modem interface (ACIA at `$DE00`):
 the client, both game disks and the casino with a SwiftLink driver, and a client that dials `qlink.kd4cbm.us:5190` by itself.
 Club Caribe has a SwiftLink side 1 there too (beta, tested on a real C64 Ultimate); Super-Q still needs a user-port modem.
+**New (beta 6):** a single-disk **D81** with all of it, Club Caribe included, and no disk swaps (needs the Ultimate's REU).
 See [ultimate/README.md](ultimate/README.md).
 
 ## Documentation

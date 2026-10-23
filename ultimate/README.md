@@ -1,6 +1,6 @@
 # Q-Link disks for the Ultimate's SwiftLink (beta)
 
-**Beta 5** (2026-10-21). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
+**Beta 6** (2026-10-23): new **single-disk D81** with Club Caribe on it (see "The D81" below). These images run Q-Link through a **SwiftLink-type ACIA** (a 6551 cartridge modem interface) instead of a user-port
 modem. Tested on the **Commodore 64 Ultimate**; the Ultimate 64 and Ultimate-II(+) emulate the same ACIA but are untested. The client is **pre-configured**: it dials
 `qlink.kd4cbm.us` port `5190` by itself, so there is no modem command, host name or phone number to type.
 
@@ -11,10 +11,32 @@ modem. Tested on the **Commodore 64 Ultimate**; the Ultimate 64 and Ultimate-II(
 | `qlink-games-2-swiftlink.d64` | People Connection games, disk 2 (Checkers, Reversi), with the SwiftLink driver |
 | `qlink-casino-swiftlink.d64` | RabbitJack's Casino with the SwiftLink driver |
 | `club-caribe-side1-swiftlink-de00.d64` | Club Caribe program disk (side 1) with a SwiftLink driver, ACIA at **`$DE00`**. **Tested on a real C64 Ultimate** (beta 5). Use it with the unchanged image disk [`../club-caribe-side2.d64`](../club-caribe-side2.d64) |
+| `qlink-ultimate-swiftlink-de00.d81` | **Beta 6, new:** everything above on **one 1581 image**: client (pre-configured, dials `qlink.kd4cbm.us:5190`), both game disks, RabbitJack's Casino and **Club Caribe, both sides**: no disk swaps. Needs the Ultimate's **REU** (2 MB or more) |
+| `qlink-ultimate-swiftlink-de00-16mb.reu` | Optional: Q-Link's REU store for that D81, already filled, for **REU Size 16 MB**: loaded into the REU, even the first session after power-on is fast |
 
 Use these **together**: the user-port disks in the folder above and these do not mix in one session (Club Caribe's image
 disk, side 2, is the one exception: it has no modem code, so the same `../club-caribe-side2.d64` serves both).
 **Super-Q is not available this way yet**: it still brings its own user-port driver.
+
+## The D81: one image, no disk swaps (beta 6)
+`qlink-ultimate-swiftlink-de00.d81` holds the client, both game disks, the casino and Club Caribe (program and image disk) on a
+single 1581 image, and keeps a copy of what you load in the Ultimate's **RAM Expansion Unit (REU)**, so places you have visited
+load again in seconds.
+1. Ultimate menu, **C64 and Cartridge Settings**: the modem interface at **`$DE00`**, **NMI** (as below); **RAM Expansion Unit =
+   Enabled** (not "GeoRAM Mode": that switches the modem off); **REU Size 2 MB or more, 16 MB recommended**.
+   **The REU is for Q-Link only**: it uses the whole REU, so do not use other REU programs or RAM disks with it.
+2. Make your own **writable working copy** of the D81 (the client saves your account on it, and Club Caribe updates its pictures
+   on it) and mount it in drive A. If the Ultimate does not switch drive A to 1581 by itself, set **Drive A Type = 1581**.
+3. Start with `LOAD"QUANTUM",8,1` (`LOAD"*",8,1` only works on a freshly powered drive). Q-Link checks the REU first: "Q-Link
+   uses the whole REU (16 MB)." (the first time also "New REU store set up"). Then it dials by itself, as the D64 client does.
+4. **Club Caribe:** People Connection > F7 > Play or observe an online game > Start a game > Club Caribe. No disk to insert and no
+   key to press: you appear in Populopolis. **SHIFT + RUN/STOP** takes you back to People Connection, again without a prompt.
+5. **Optional, faster first session:** with REU Size 16 MB, select `qlink-ultimate-swiftlink-de00-16mb.reu` in the Ultimate's file
+   browser and choose **Load into REU** (once), or **Preload into REU** with **REU Preload** on (at every power-on). Use it only
+   with this D81 and REU Size 16 MB; with another size Q-Link simply sets up a new store and fills it as you go.
+6. **Super-Q is not on the D81 yet.** For Super-Q use the D64 set and a user-port modem, as before.
+Your D64 working copies and this D81 are separate disks: an account made on one is not on the other (sign up again, or keep
+using the D64 set).
 
 ## Set up the Ultimate
 1. Enable the modem interface (ACIA / SwiftLink emulation) at **`$DE00`**, interrupt **NMI**.
@@ -68,6 +90,11 @@ In VICE (ACIA at `$DE00`): new member sign-up with no input, returning member si
 Commodore 64 Ultimate: sign-off and F5 to BASIC. Please report anything that freezes, and where.
 
 ## Changes
+- **Beta 6 (2026-10-23):** new: the single-disk **D81** (`qlink-ultimate-swiftlink-de00.d81`) with the REU store and Club
+  Caribe on it, plus its optional 16 MB REU image. Club Caribe's own fast disk code was written for the 1541; the D81 carries a
+  1581 version of it, and the image disk sits on the D81's last tracks. Tested in VICE (1581 drive: sign-on, Club Caribe in and
+  out twice); a first run on a real C64 Ultimate looked good, a fuller hardware test is under way. The D64 images above are
+  unchanged from beta 5.
 - **Beta 5 (2026-10-21):** Club Caribe side 1 only: it now works on the real C64 Ultimate (beta 4's side 1 stopped at entry
   there). The quit key is **SHIFT + RUN/STOP**; earlier betas wrongly said CTRL+Q. The client, games and casino are
   unchanged from beta 3, so keep using your working copies.
