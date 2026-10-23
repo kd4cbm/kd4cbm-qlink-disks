@@ -1,8 +1,15 @@
-# KD4CBM Q-Link disk images (beta testers)
+# KD4CBM Q-Link disk images
 
 Everything you need to sign on to **qlink.kd4cbm.us** (port **5190**) and use the games, the casino, Super-Q and
-Club Caribe (Habitat). All images are standard 1541 `.d64` files for a real C64 (via an SD2IEC, Ultimate, Pi1541 or a
-transfer cable) or for VICE.
+Club Caribe (Habitat). **Current release: Public Release Beta 1 (`v1.0.0-beta.1`)**; see [CHANGELOG.md](CHANGELOG.md) and the
+[releases page](https://github.com/kd4cbm/kd4cbm-qlink-disks/releases).
+
+**Which disks do I need?**
+* **Commodore 64 Ultimate** (its built-in modem): the single D81 image in **[`ultimate/`](ultimate/)**. Start there.
+* **Any other C64 with a user-port modem** (or VICE with a user-port modem): the standard 1541 `.d64` files below (via an SD2IEC,
+  Ultimate, Pi1541 or a transfer cable).
+
+## The user-port disk set
 
 | Image | What it is | Needed for |
 |---|---|---|
@@ -14,12 +21,10 @@ transfer cable) or for VICE.
 | `club-caribe-side1.d64` | Club Caribe program disk (`CLUB CARIBE`) | Club Caribe / Habitat |
 | `club-caribe-side2.d64` | Club Caribe image disk (`HABITAT DATA`) | Club Caribe / Habitat (stays in the drive) |
 
-## Commodore 64 Ultimate / SwiftLink (beta)
-The **[`ultimate/`](ultimate/)** folder has a beta set for the Ultimate's SwiftLink-type modem interface (ACIA at `$DE00`):
-the client, both game disks and the casino with a SwiftLink driver, and a client that dials `qlink.kd4cbm.us:5190` by itself.
-Club Caribe has a SwiftLink side 1 there too (beta, tested on a real C64 Ultimate); Super-Q still needs a user-port modem.
-**New (beta 6):** a single-disk **D81** with all of it, Club Caribe included, and no disk swaps (needs the Ultimate's REU).
-See [ultimate/README.md](ultimate/README.md).
+## Commodore 64 Ultimate
+The **[`ultimate/`](ultimate/)** folder has **one D81 image** for the Ultimate's built-in SwiftLink-type modem (ACIA at `$DE00`):
+the client (it dials `qlink.kd4cbm.us:5190` by itself), the games, the casino, Club Caribe and Super-Q, no disk swaps; it needs
+the Ultimate's REU. See [ultimate/README.md](ultimate/README.md). (The tester betas' per-disk SwiftLink images are there too.)
 
 ## Documentation
 - **[CONNECTING.md](CONNECTING.md)**: modems (Zimodem and other Wi-Fi modems, tcpser, VICE), why you dial raw `ATD` and not
@@ -28,7 +33,7 @@ See [ultimate/README.md](ultimate/README.md).
   the games, RabbitJack's Casino, Super-Q and the Music Connection, Club Caribe, mail and news, with a quick-reference card.
   Written for this server; where it says "ask the system operator for the corrected disk", the disks here are the corrected ones.
 
-## Getting started
+## Getting started (user-port set)
 1. Make **your own working copies** of the images and keep these downloads untouched as a backup. The client writes
    your registration to its disk, and the Club Caribe image disk is updated by the server when you enter, so the
    working copies must be **writable**. Never share your working client disk: it holds your account details.

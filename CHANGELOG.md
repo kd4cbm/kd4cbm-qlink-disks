@@ -5,8 +5,21 @@ public releases are `vMAJOR.MINOR.PATCH`, with `-beta.N` for pre-releases. Every
 a GitHub Release with the images and checksums.
 
 ## [Unreleased]
-- Public Release Beta 1 (`v1.0.0-beta.1`) in preparation: the single-disk D81 for the Commodore 64 Ultimate with Club Caribe and
-  Super-Q (hold C= when choosing People Connection).
+- (nothing yet)
+
+## [v1.0.0-beta.1] - 2026-10-23 - Public Release Beta 1
+The first public release. For the Commodore 64 Ultimate: one D81 image with everything.
+### Added
+- **Super-Q on the Ultimate D81**: hold C= and press F1 on People Connection; the main menu says `C=+F1: Super-Q`. Super-Q's
+  Return to Q-Link comes back to the main menu.
+### Changed
+- `ultimate/qlink-ultimate-swiftlink-de00.d81` (and its optional `-16mb.reu`) is now **the** Ultimate image: the client, both game
+  disks, RabbitJack's Casino, Club Caribe and Super-Q, no disk swaps. The per-disk SwiftLink images of the tester betas stay in
+  `ultimate/` for testers; the user-port set is unchanged.
+### Known issues
+- After Super-Q > Return to Q-Link, the main menu does not show the `C=+F1: Super-Q` line (C= + F1 still works).
+
+Built from the KD4CBM build tree `dev/reu-store` at `24cf9da` (set stamp `QLULT-24cf9da76`).
 
 ## Tester betas (before the public release)
 These were for the beta testers. Each is a tag (`tester-beta.N`); the images of each are in that tag.
