@@ -45,6 +45,7 @@ Without the REU image VICE still works (REU enabled, 2 MB): Q-Link sets up an em
 longer, and each area loads from the disk on your first visit.
 
 ## Known issues
+* **VICE 3.10 on macOS may not connect** to the server with these settings; it works on Windows. This is being looked into.
 * After **Super-Q > Return to Q-Link**, the main menu does not show the `C=+F1: Super-Q` line (C= + F1 still works). Fixed in
   the next beta.
 
