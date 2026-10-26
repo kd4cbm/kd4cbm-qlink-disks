@@ -5,6 +5,9 @@ public releases are `vMAJOR.MINOR.PATCH`, with `-beta.N` for pre-releases. Every
 a GitHub Release with the images and checksums.
 
 ## [Unreleased]
+- New: **`vice/`**, the Public Release Beta 1 D81 for the VICE emulator (`qlink-ultimate-vice.d81`, manual dial: press F1 at the
+  modem screen) and its pre-filled 2 MB REU image (`qlink-ultimate-vice-2mb.reu`), with the VICE settings in `vice/README.md`.
+  Same build and set stamp as `v1.0.0-beta.1` (`QLULT-24cf9da76`); only the dial setting differs from the Ultimate image.
 - Release page of `v1.0.0-beta.1` (no change to the tagged files): it now also carries the user-port set as one zip
   (`kd4cbm-qlink-disks-userport-v1.0.0-beta.1.zip`: the seven D64s at the tag, `CONNECTING.md`, the Member's Guide, the
   checksums) and is the **Latest** release, so the releases page leads every C64 to the current disks. The old `v1` release

@@ -6,6 +6,7 @@ Club Caribe (Habitat). **Current release: Public Release Beta 1 (`v1.0.0-beta.1`
 
 **Which disks do I need?**
 * **Commodore 64 Ultimate** (its built-in modem): the single D81 image in **[`ultimate/`](ultimate/)**. Start there.
+* **VICE** (emulator): the same single D81 set up for VICE, in **[`vice/`](vice/)**, with the VICE settings.
 * **Any other C64 with a user-port modem** (or VICE with a user-port modem): the standard 1541 `.d64` files below (via an SD2IEC,
   Ultimate, Pi1541 or a transfer cable).
 
@@ -25,6 +26,10 @@ Club Caribe (Habitat). **Current release: Public Release Beta 1 (`v1.0.0-beta.1`
 The **[`ultimate/`](ultimate/)** folder has **one D81 image** for the Ultimate's built-in SwiftLink-type modem (ACIA at `$DE00`):
 the client (it dials `qlink.kd4cbm.us:5190` by itself), the games, the casino, Club Caribe and Super-Q, no disk swaps; it needs
 the Ultimate's REU. See [ultimate/README.md](ultimate/README.md). (The tester betas' per-disk SwiftLink images are there too.)
+
+## VICE
+The **[`vice/`](vice/)** folder has the same D81 for the VICE emulator (manual dial: VICE connects its emulated SwiftLink
+straight to the server) and a pre-filled 2 MB REU image. See [vice/README.md](vice/README.md) for the settings.
 
 ## Documentation
 - **[CONNECTING.md](CONNECTING.md)**: modems (Zimodem and other Wi-Fi modems, tcpser, VICE), why you dial raw `ATD` and not
